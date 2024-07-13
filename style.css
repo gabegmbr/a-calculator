@@ -1,0 +1,37 @@
+body{
+    background-color: rgb(34, 34, 34);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+div#calculator{
+    display: flex;
+    justify-content: center;
+    background-color: rgb(0, 0, 0);
+    width: 350px;
+    height: 600px;
+    border-radius: 30px;
+}
+
+#display{
+    display: flex;
+    flex-direction: column;
+    color: white;
+    text-align: end;
+    width: 300px;
+    height: 120px;
+    margin-top: 30px;
+    border-radius: 30px;
+    background-color: rgb(20, 20, 20);
+}
+
+#display:text
+
+p#displayNum{
+}
+
+h1#displayResult{
+    color: rgb(255, 255, 255);
+}
