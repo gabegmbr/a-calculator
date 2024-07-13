@@ -8,7 +8,7 @@ body{
 
 div#calculator{
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     background-color: rgb(0, 0, 0);
     width: 350px;
     height: 600px;
@@ -18,20 +18,78 @@ div#calculator{
 #display{
     display: flex;
     flex-direction: column;
-    color: white;
-    text-align: end;
-    width: 300px;
-    height: 120px;
-    margin-top: 30px;
+    color: rgb(131, 131, 131);
+    width: 350px;
+    height: 200px;
     border-radius: 30px;
     background-color: rgb(20, 20, 20);
 }
 
-#display:text
+#a-bar{
+    width: 45px;
+    height: 7px;
+    border-radius: 10px;
+    background-color: rgb(60, 60, 60);
+    align-self: center;
+}
 
-p#displayNum{
+#displayText{
+    align-self: center;
+    font-family: monospace;
+    overflow-wrap: break-word;
+    font-size: 15px;
+    line-height: 15px;
+    text-align: end;
+    margin-top: 30px;
+    margin-bottom: 50px;
+    width: 300px;
 }
 
 h1#displayResult{
     color: rgb(255, 255, 255);
+}
+
+#numButtons{
+    display: flex;
+    flex-wrap: wrap;
+    width: 190px;
+    height: 300px;
+    gap: 5px;
+}
+
+#buttons{
+    margin-top: 60px;
+    align-self: center;
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+}
+
+#funcButtons{
+    display: flex;
+    flex-wrap: wrap;
+    width: 130px;
+    gap: 10px;
+}
+
+button{
+    font-family: monospace;
+    line-height: 55px;
+    font-size: 20px;
+    color: rgb(167, 167, 167);
+    background-color: rgb(20, 20, 20);
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    -webkit-justify-content: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    border-radius: 100%;
+    border-style: none;
+}
+
+button:hover{
+    background-color: rgb(44, 44, 44);
 }

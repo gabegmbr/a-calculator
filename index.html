@@ -4,17 +4,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>A calculator.</title>
-    <script scr="./script.js"></script>
     <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
 </head>
 <body>
     <div id="calculator">
         <div id="display">
-            <p id="displayNum">1+1</h2>
-            <h1 id="displayResult">2</h1>
+            <div id="displayText">
+                <p id="displayNum"></p>
+                <h1 id="displayResult">2</h1>
+            </div>
+            <div id="a-bar"></div>
         </div>
-        <div id="numButtons">
-
+        <div id="buttons">
+            <div id="numButtons">
+                <button onclick="input('1')">1</button>
+                <button onclick="input('2')">2</button>
+                <button onclick="input('3')">3</button>
+                <button onclick="input('4')">4</button>
+                <button onclick="input('5')">5</button>
+                <button onclick="input('6')">6</button>
+                <button onclick="input('7')">7</button>
+                <button onclick="input('8')">8</button>
+                <button onclick="input('9')">9</button>
+                <button onclick="input('0')">0</button>
+                <button id="decimalButton" onclick="input('.')">.</button>
+            </div>
+            <div id="funcButtons">
+                <button onclick="allClear()">AC</button>
+                <button>DEL</button>
+                <button onclick="inputOperator('+')">+</button>
+                <button onclick="inputOperator('-')">-</button>
+                <button onclick="inputOperator('*')">x</button>
+                <button onclick="inputOperator('/')">÷</button>
+                <button onclick="inputOperator('=')">=</button>
+            </div>
         </div>
     </div>
 </body>
