@@ -25,14 +25,6 @@ div#calculator{
     background-color: rgb(20, 20, 20);
 }
 
-#a-bar{
-    width: 45px;
-    height: 7px;
-    border-radius: 10px;
-    background-color: rgb(60, 60, 60);
-    align-self: center;
-}
-
 #displayText{
     align-self: center;
     font-family: monospace;
@@ -47,6 +39,7 @@ div#calculator{
 
 h1#displayResult{
     color: rgb(255, 255, 255);
+    line-height: 25px;
 }
 
 #numButtons{
