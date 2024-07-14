@@ -1,21 +1,9 @@
-let x, y, operator, xDecimalPoint, yDecimalPoint, operatorPressed;
+let x, y, operator, xDecimalPoint, yDecimalPoint, operatorRegistered;
 let ans;
-
 
 let displayOperation = document.getElementById("displayNum");
 let displayResult = document.getElementById("displayResult");
 let decimalButton = document.getElementById("decimalButton");
-
-function allClear(){
-    x = y = text = '';
-    operatorPressed = xDecimalPoint = yDecimalPoint = false;
-    ans = 0;
-    displayOperation.textContent = "0";
-    displayResult.textContent = "0";
-    decimalButton.disabled = false;
-}
-
-allClear();
 
 function updateText(){
     displayOperation.textContent = text;
@@ -33,6 +21,15 @@ function isStringEmpty(){ //function to check if the input string is empty. basi
     else return false;
 }
 
+function allClear(){
+    x = y = text = '';
+    operatorRegistered = xDecimalPoint = yDecimalPoint = false;
+    ans = 0;
+    displayOperation.textContent = "0";
+    displayResult.textContent = "0";
+    decimalButton.disabled = false;
+}
+
 function inputOperator(opr){
     if(opr == '=' && isStringEmpty() == false){
         if(y != ''){ //if y is defined, perform operation
@@ -43,11 +40,11 @@ function inputOperator(opr){
             updateText();
         }
     } else{
-        if(operatorPressed == false && isNumber() == true){
+        if(operatorRegistered == false && isNumber() == true){
             text += opr;
             operator = opr;
             updateText();
-            operatorPressed = true;
+            operatorRegistered = true;
         } else{
             if(isNumber() == false && isStringEmpty() == false){ //if last inserted char is not a number and the string is not empty, change operator (prevents user from adding a sequence of operators)
                 text = text.slice(0, -1);
@@ -55,7 +52,7 @@ function inputOperator(opr){
                 operator = opr;
                 updateText();
             } else if(isStringEmpty() == false){ //if last char is a number, perform operation
-                operatorPressed = true;
+                operatorRegistered = true;
                 operate(operator, parseFloat(x), parseFloat(y));
                 operator = opr;
                 x = ans;
@@ -68,7 +65,7 @@ function inputOperator(opr){
 }
 
 function input(num){
-    if(operatorPressed == false){
+    if(operatorRegistered == false){
         text += num; //input text
         x += num; //
         if(num == '.'){ 
@@ -104,3 +101,33 @@ function operate(operator, x, y){
     }
     return ans;
 }
+
+function del(){
+    if(operatorRegistered == false){
+        if(text.slice(0, -1) == ''){
+            allClear()
+            return;
+        }
+        if(text.slice(-1) == '.'){ //re-enable decimal button
+            xDecimalPoint = false; 
+            decimalButton.disabled = false;
+        } 
+        x = x.slice(0, -1);
+        text = text.slice(0, -1);
+        updateText();
+    } else{
+        if(text.slice(-1) == operator){
+            operator = '';
+            operatorRegistered = false;
+        } else if(y == '') allClear();
+        if(text.slice(-1) == '.'){
+            yDecimalPoint = false; 
+            decimalButton.disabled = false;
+        }
+        y = y.slice(0, -1);
+        text = text.slice(0, -1);
+        updateText();
+    }
+}
+
+allClear();
